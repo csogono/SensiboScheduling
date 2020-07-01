@@ -13,7 +13,7 @@ def lambda_handler(event, context):
     now = datetime.now(tz=dateutil.tz.gettz(os.environ['Timezone']))
     timeNow = int(now.strftime("%H%M"))
     
-    reader = csv.reader(open('schedules'))
+    reader = csv.reader(open('crschedule'))
     crSchedule = []
     fetchSensiboData = False
     for row in reader:
@@ -45,12 +45,6 @@ def lambda_handler(event, context):
     req = http.request('GET', 'https://home.sensibo.com/api/v2/users/me/pods?fields=*&apiKey='+sensiboKey)
     payload = json.loads(req.data.decode('utf-8'))
     
-    if len(crSchedule) == 0:
-        return {
-            'statusCode': 200,
-            'body': json.dumps('No schedule items')
-        }
-    
     devices = {}
     for device in payload["result"]:
         deviceName = device["room"]["name"]
@@ -76,7 +70,7 @@ def lambda_handler(event, context):
     print("IFTTT Triggers:", iftttTriggers)
     
     for trigger in iftttTriggers:
-        req = http.request('POST', 'https://maker.ifttt.com/trigger/' + trigger + '/with/key/KsVqF_4zHwqIzISpufBvO')
+        req = http.request('POST', 'https://maker.ifttt.com/trigger/' + trigger + '/with/key/'+webhooksKey)
 
     return {
         'statusCode': 200,
