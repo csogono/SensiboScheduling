@@ -15,7 +15,7 @@ FEATURES
   switch ON, then do nothing for that device.
 
 * Will only poll the Sensibo API if a schedule is active. If climate react is only active from
-  21:00 to 8:00, the no Sensibo API polling will occur from 8:00 to 21:00.
+  21:00 to 8:00, then no Sensibo API polling will occur from 8:00 to 21:00.
 
 
 INSTRUCTIONS
