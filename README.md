@@ -40,3 +40,22 @@ Make sure you enter your own timezone!
 After verifying that the function works for you, you will have to schedule a CloudWatch event to
 trigger periodic scheduling. The TempAgeSeconds environment value (seconds) must be equal to your
 frequency. If you choose 10 minutes then TempAgeSeconds must be 600 seconds.
+
+
+SCHEDULE CONFIGURATION
+
+A sample schedule configuration file looks like this:
+
+on,Living,lt,13.5,ac_living,23:45,7:45
+off,Living,gt,25,ac_living_off,0:00,24:00
+on,Bedroom,lt,15,ac_bedroom,21:45,8:00
+on,Study,lt,16,ac_study,8:30,18:00
+
+The columns are as follows:
+1. Trigger action mode [on/off] - The trigger action you are trying to achieve
+2. Sensibo device name - this is case sensitive
+3. Temperature comparison operator [gt/lt] - Operator used to compare the temperature
+4. Trigger temperature (Celsius) - Accepts decimals
+5. IFTTT Webhooks trigger - Trigger when the temperature condition is met
+6. Schedule start time - Must be 24 hour format such as 21:00
+7. Schedule end time - Must be 24 hour format such as 21:00
