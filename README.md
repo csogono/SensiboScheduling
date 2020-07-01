@@ -27,10 +27,10 @@ Familiarity with running Python AWS Lambda functions is mandatory. Refer to AWS 
 The file "schedules" must be saved in the same directory as the Lambda function.
 
 The following environment keys must be set within the Lambda function:
-SensiboAPIKey = XXXXXXXXXXXXXXXX
-TempAgeSeconds = 600
-Timezone = Australia/Canberra
-WebhooksAPIKey = YYYYYYYYYYYYY
+* SensiboAPIKey = XXXXXXXXXXXXXXXX
+* TempAgeSeconds = 600
+* Timezone = Australia/Canberra
+* WebhooksAPIKey = YYYYYYYYYYYYY
 
 Ensure you generate a Sensibo API Key and and IFTTT Webhooks API Key and populate the above
 environment values.
