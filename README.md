@@ -1,5 +1,5 @@
 # SensiboScheduling
-Scheduling of Sensibo AC events including climate react via IFTTT Webhooks
+Python AWS Lambda function to schedule Sensibo AC events including climate react via IFTTT Webhooks.
 
 FEATURES
 
@@ -21,21 +21,20 @@ FEATURES
 INSTRUCTIONS
 
 This will only work as an AWS Lambda function. With minor changes it could work as a standalone script.
-
 Familiarity with running Python AWS Lambda functions is mandatory. Refer to AWS documentation.
 
-The file "schedules" must be saved in the same directory as the Lambda function.
+The schedule file defined by the environment variable "ScheduleFilename" must be saved in the same
+directory as the Lambda function.
 
-The following environment keys must be set within the Lambda function:
+The following environment variables must be set within the Lambda function:
+* ScheduleFilename = schedules
 * SensiboAPIKey = XXXXXXXXXXXXXXXX
 * TempAgeSeconds = 600
 * Timezone = Australia/Canberra
 * WebhooksAPIKey = YYYYYYYYYYYYY
 
-Ensure you generate a Sensibo API Key and and IFTTT Webhooks API Key and populate the above
-environment values.
-
-Make sure you enter your own timezone!
+Ensure that the variables above are properly populated. You will need to generate a Sensibo API Key and
+an IFTTT Webhooks API Key. Thee timezone variable is critical and must be set to your local timezone.
 
 After verifying that the function works for you, you will have to schedule a CloudWatch event to
 trigger periodic scheduling. The TempAgeSeconds environment value (seconds) must be equal to your
@@ -55,7 +54,7 @@ The columns are as follows:
 1. Trigger action mode [on/off] - The trigger action you are trying to achieve
 2. Sensibo device name - this is case sensitive
 3. Temperature comparison operator [gt/lt] - Operator used to compare the temperature
-4. Trigger temperature (Celsius) - Accepts decimals
+4. Trigger temperature - Accepts decimals. Only tested in celsius but should work for fahrenheit
 5. IFTTT Webhooks trigger - Trigger when the temperature condition is met
 6. Schedule start time - Must be 24 hour format such as 21:00
 7. Schedule end time - Must be 24 hour format such as 21:00
