@@ -1,7 +1,7 @@
 # SensiboScheduling
 Python AWS Lambda function to schedule Sensibo AC events including climate react via IFTTT Webhooks.
 
-FEATURES
+**FEATURES**
 
 * When a climate react condition is met, triggers an IFTTT Webhooks trigger, not the Sensibo API
   directly. Configuring the trigger actions in IFTTT makes it more user friendly.
@@ -18,7 +18,7 @@ FEATURES
   21:00 to 8:00, then no Sensibo API polling will occur from 8:00 to 21:00.
 
 
-INSTRUCTIONS
+**INSTRUCTIONS**
 
 This will only work as an AWS Lambda function. With minor changes it could work as a standalone script.
 Familiarity with running Python AWS Lambda functions is mandatory. Refer to AWS documentation.
@@ -41,7 +41,7 @@ trigger periodic scheduling. The TempAgeSeconds environment value (seconds) must
 frequency. If you choose 10 minutes then TempAgeSeconds must be 600 seconds.
 
 
-SCHEDULE CONFIGURATION
+**SCHEDULE CONFIGURATION**
 
 A sample schedule configuration file looks like this:
 
