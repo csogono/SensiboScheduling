@@ -34,11 +34,11 @@ The following environment variables must be set within the Lambda function:
 * WebhooksAPIKey = YYYYYYYYYYYYY
 
 Ensure that the variables above are properly populated. You will need to generate a Sensibo API Key and
-an IFTTT Webhooks API Key. Thee timezone variable is critical and must be set to your local timezone.
+an IFTTT Webhooks API Key. The timezone variable is critical and must be set to your local timezone.
 
-After verifying that the function works for you, you will have to schedule a CloudWatch event to
-trigger periodic scheduling. The TempAgeSeconds environment value (seconds) must be equal to your
-frequency. If you choose 10 minutes then TempAgeSeconds must be 600 seconds.
+After verifying that the function works, you will have to schedule a CloudWatch event to trigger
+periodic scheduling. The TempAgeSeconds environment value (seconds) must be equal to your frequency.
+For example, if you choose 10 minutes intervals then TempAgeSeconds must be 600 seconds.
 
 
 **SCHEDULE CONFIGURATION**
