@@ -45,10 +45,10 @@ SCHEDULE CONFIGURATION
 
 A sample schedule configuration file looks like this:
 
-on,Living,lt,13.5,ac_living,23:45,7:45
-off,Living,gt,25,ac_living_off,0:00,24:00
-on,Bedroom,lt,15,ac_bedroom,21:45,8:00
-on,Study,lt,16,ac_study,8:30,18:00
+    on,Living,lt,13.5,ac_living,23:45,7:45
+    off,Living,gt,25,ac_living_off,0:00,24:00
+    on,Bedroom,lt,15,ac_bedroom,21:45,8:00
+    on,Study,lt,16,ac_study,8:30,18:00
 
 The columns are as follows:
 1. Trigger action mode [on/off] - The trigger action you are trying to achieve
